@@ -1,9 +1,7 @@
-var express = require('express');
-var router = express.Router();
+const cards = require("./cards");
+const users = require("./users");
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
-
-module.exports = router;
+module.exports = app => {
+  app.use('/users', users);
+  app.use('/cards', cards);
+}
