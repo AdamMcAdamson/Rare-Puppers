@@ -5,7 +5,10 @@ const router = new Router();
 
 module.exports = router;
 
-/* GET users listing. */
-router.get('/', async (req, res) => {
-  res.send('respond with a resource');
+// GET user profile 
+router.get('/:userId', async (req, res) => {
+  const { user_id } = req.params.userId;
+
+  const { user } = db.query('SELECT * FROM rarepuppersdbschema.users WHERE _id = $1', [user_id]);
+  res.send(user);
 });

@@ -39,3 +39,8 @@ COMMENT ON COLUMN rarepuppersdbschema.cards.attributes IS 'dog attributes';
 
 ALTER TABLE rarepuppersdbschema.cards ADD CONSTRAINT fk_owner_id FOREIGN KEY ( owner_id ) REFERENCES rarepuppersdbschema.users( "_id" );
 
+-- insert user example
+-- INSERT INTO rarepuppersdbschema.users VALUES (DEFAULT, 'Adam', 'pass', 100)
+
+-- insert card example
+-- INSERT INTO rarepuppersdbschema.cards VALUES (DEFAULT, 1, 10, 'pupper', '{"supreme cuddler", "lick monster", "hand shaker"}', DEFAULT, DEFAULT)
