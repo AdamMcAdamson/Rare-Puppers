@@ -42,7 +42,7 @@ router.post('/rate', async (req, res) => {
 // ----------------------------------------------------
 
 // GET user's cards
-router.get('/', async (req, res) => {
+router.post('/', async (req, res) => {
     const { user_id } = req.body.user_id;
 
     const { cards } = await db.query('SELECT * FROM rarepuppersdbschema.card WHERE owner_id = $1', [user_id]);
@@ -53,6 +53,7 @@ router.get('/', async (req, res) => {
 router.get('/all', async (req, res) => {
     const { cards } = await db.query('SELECT * FROM rarepuppersdbschema.cards');
     res.send(cards);
+    console.log(cards);
 });
 
 router.get('/mint', async (req, res) => {
