@@ -51,9 +51,14 @@ router.post('/', async (req, res) => {
 
 // GET all cards
 router.get('/all', async (req, res) => {
+    /*
     const { cards } = await db.query('SELECT * FROM rarepuppersdbschema.cards');
     res.send(cards);
-    console.log(cards);
+    console.log(cards);*/
+    db.query('SELECT * FROM rarepuppersdbschema.cards').then(()=> {
+        console.log(cards);
+        res.send(cards);
+    });
 });
 
 router.get('/mint', async (req, res) => {
