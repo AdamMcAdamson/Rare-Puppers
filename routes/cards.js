@@ -50,7 +50,7 @@ router.post('/rate', async (req, res) => {
 // GET user's cards
 router.post('/', async (req, res) => {
     const { user_id } = req.body.user_id;
-
+    console.log(user_id);
     db.query('SELECT * FROM rarepuppersdbschema.cards WHERE owner_id = $1', [user_id])
     .then(cards => {
         // console.log(cards.rows);
