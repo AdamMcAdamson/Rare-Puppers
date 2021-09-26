@@ -51,14 +51,14 @@ router.post('/', async (req, res) => {
 
 // GET all cards
 router.get('/all', async (req, res) => {
-    /*
+    
     const { cards } = await db.query('SELECT * FROM rarepuppersdbschema.cards');
-    res.send(cards);
-    console.log(cards);*/
-    db.query('SELECT * FROM rarepuppersdbschema.cards').then(cards => {
-        console.log(cards.rows);
-        res.send(cards.rows);
-    }).catch(e => console.error(e.stack));
+    res.send(cards.rows);
+    console.log(cards.rows);
+    // db.query('SELECT * FROM rarepuppersdbschema.cards').then(cards => {
+    //     console.log(cards.rows);
+    //     res.send(cards.rows);
+    // }).catch(e => console.error(e.stack));
 });
 
 router.get('/mint', async (req, res) => {
