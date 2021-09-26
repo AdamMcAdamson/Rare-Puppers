@@ -1,16 +1,18 @@
-const express = require('express');
+	const express = require('express');
 
-const mountRoutes = require("./routes");
+	const users = require("./routes/users");
+	const cards = require("./routes/cards");
 
-const app = express();
-const port = process.env.PORT || 3000;
+	const app = express();
+	const port = process.env.PORT || 3000;
 
-mountRoutes(app);
+	app.use('/users', users); 
+	app.use('/cards', cards);
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+	app.use(express.json());
+	app.use(express.urlencoded({ extended: false }));
 
-// start server
-app.listen(port, () => {
-  console.log(`App listening at port: ${port}`);
-});
+	// start server
+	app.listen(port, () => {
+	console.log(`App listening at port: ${port}`);
+	});
