@@ -51,7 +51,7 @@ router.post('/rate', async (req, res) => {
 router.post('/', async (req, res) => {
     const { user_id } = req.body.user_id;
 
-    db.query('SELECT * FROM rarepuppersdbschema.card WHERE owner_id = $1', [user_id])
+    db.query('SELECT * FROM rarepuppersdbschema.cards WHERE owner_id = $1', [user_id])
     .then(cards => {
         // console.log(cards.rows);
         res.send(cards.rows);
