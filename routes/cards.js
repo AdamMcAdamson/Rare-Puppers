@@ -55,10 +55,10 @@ router.get('/all', async (req, res) => {
     const { cards } = await db.query('SELECT * FROM rarepuppersdbschema.cards');
     res.send(cards);
     console.log(cards);*/
-    db.query('SELECT * FROM rarepuppersdbschema.cards').then(()=> {
-        console.log(cards);
-        res.send(cards);
-    });
+    db.query('SELECT * FROM rarepuppersdbschema.cards').then(cards => {
+        console.log(cards.rows);
+        res.send(cards.rows);
+    }).catch(e => console.error(e.stack));
 });
 
 router.get('/mint', async (req, res) => {
