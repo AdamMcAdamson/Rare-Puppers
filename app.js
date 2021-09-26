@@ -11,8 +11,8 @@ mountRoutes(app);
 
 const port = process.env.PORT || 3000;
 
-app.use('/users', users); 
-app.use('/cards', cards);
+// app.use('/users', users); 
+// app.use('/cards', cards);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
