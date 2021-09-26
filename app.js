@@ -7,11 +7,9 @@ const logger = require('morgan');
 const mountRoutes = require("./routes");
 
 const app = express();
-mountRoutes(app);
+const port = process.env.PORT || 3000;
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+mountRoutes(app);
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -35,4 +33,7 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+// start server
+app.listen(port, () => {
+  console.log(`App listening at port: ${port}`);
+});
