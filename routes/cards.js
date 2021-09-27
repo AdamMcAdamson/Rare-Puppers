@@ -4,8 +4,8 @@ const db = require('../db');
 
 module.exports = router;
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+router.use(express.urlencoded({ extended: true }));
+router.use(express.json());
 
 // API endpoints
 // ----------------------------------------------------
