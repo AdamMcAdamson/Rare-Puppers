@@ -2,8 +2,6 @@ const express = require('express')
 const router = express.Router();
 const db = require('../db');
 
-module.exports = router;
-
 router.use(express.urlencoded({ extended: true }));
 router.use(express.json());
 
