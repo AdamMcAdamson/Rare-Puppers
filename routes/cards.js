@@ -24,15 +24,15 @@ router.post('/mint', async (req, res) => {
 });
 
 // @TODO: Verify if valid URL
-router.post('/:cardId/edit', (req, res) => {
+router.post('/:cardId/edit', async (req, res) => {
     res.send("Edit card endpoint of cardId: " + req.params.cardId);
 });
 
-router.post('/trade', (req, res) => {
+router.post('/trade', async (req, res) => {
     res.send("Card trading endpoint");
 });
 
-router.post('/rate', (req, res) => {
+router.post('/rate', async (req, res) => {
     res.send("Card rating endpoint");
 });
 
@@ -46,9 +46,14 @@ router.post('/', async (req, res) => {
     // console.log(user_id);
     
     const { cards } = await db.query('SELECT * FROM rarepuppersdbschema.cards WHERE owner_id = $1', [user_id])
+    console.log("cards: ");
+    console.log(cards);
+    
+    const cards2 = await db.query('SELECT * FROM rarepuppersdbschema.cards WHERE owner_id = $1', [user_id])
+    console.log("cards2: ");
+    console.log(cards2);
 
     res.send(cards);
-
     // db.query('SELECT * FROM rarepuppersdbschema.cards WHERE owner_id = $1', [user_id])
     // .then(cards => {
     //     // console.log(cards.rows);
@@ -61,6 +66,7 @@ router.get('/all', async (req, res) => {
 
     const { cards } = await db.query('SELECT * FROM rarepuppersdbschema.cards');
 
+    console.log(cards);
     res.send(cards);
 
     // db.query('SELECT * FROM rarepuppersdbschema.cards')
@@ -90,12 +96,12 @@ router.get('/:cardId', async (req, res) => {
 // Probably obsolete if/when using react router
 // ----------------------------------------------------
 
-router.get('/mint', (req, res) => {
+router.get('/mint', async (req, res) => {
     res.send("Display mint cards form");
 });
 
 // @TODO: Verify if valid URL
-router.get('/:cardId/edit', (req, res) => {
+router.get('/:cardId/edit', async (req, res) => {
     res.send("Display card edit form of cardId: " + req.params.cardId);
 });
 

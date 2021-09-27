@@ -7,10 +7,11 @@ const mountRoutes = require("./routes");
 const app = express();
 const port = process.env.PORT || 3000;
 
-mountRoutes(app);
-
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+mountRoutes(app);
+
 
 // app.use('/users', users); 
 // app.use('/cards', cards);
