@@ -4,11 +4,11 @@ const db = require('../db');
 
 module.exports = router;
 
-/* GET user cards. */
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // API endpoints
 // ----------------------------------------------------
-
 
 // Mint new card
 router.post('/mint', (req, res) => {
