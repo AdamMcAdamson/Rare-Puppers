@@ -37,7 +37,7 @@ router.post('/rate', (req, res) => {
 
 // GET user's cards
 router.post('/', (req, res) => {
-    const { user_id } = req.body.user_id;
+    const user_id  = req.body.user_id;
 
     console.log(req.body);
     console.log(req.body.user_id);
