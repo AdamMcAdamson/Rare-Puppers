@@ -1,7 +1,5 @@
 const express = require('express');
 
-// const users = require("./routes/users");
-// const cards = require("./routes/cards");
 const mountRoutes = require("./routes");
 
 const app = express();
@@ -11,10 +9,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 mountRoutes(app);
-
-
-// app.use('/users', users); 
-// app.use('/cards', cards);
 
 app.post('/', (req, res)=>{
 	console.log(req.body);
