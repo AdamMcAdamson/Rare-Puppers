@@ -45,15 +45,9 @@ router.post('/', async (req, res) => {
     // console.log(req.body['user_id']);
     // console.log(user_id);
     
-    const { cards } = await db.query('SELECT * FROM rarepuppersdbschema.cards WHERE owner_id = $1', [user_id])
-    console.log("cards: ");
-    console.log(cards);
-    
-    const cards2 = await db.query('SELECT * FROM rarepuppersdbschema.cards WHERE owner_id = $1', [user_id])
-    console.log("cards2: ");
-    console.log(cards2);
-
-    res.send(cards);
+    const cards = await db.query('SELECT * FROM rarepuppersdbschema.cards WHERE owner_id = $1', [user_id])
+    // console.log(cards.rows);
+    res.send(cards.rows);
     // db.query('SELECT * FROM rarepuppersdbschema.cards WHERE owner_id = $1', [user_id])
     // .then(cards => {
     //     // console.log(cards.rows);
@@ -64,10 +58,10 @@ router.post('/', async (req, res) => {
 // GET all cards
 router.get('/all', async (req, res) => {
 
-    const { cards } = await db.query('SELECT * FROM rarepuppersdbschema.cards');
+    const cards = await db.query('SELECT * FROM rarepuppersdbschema.cards');
 
-    console.log(cards);
-    res.send(cards);
+    console.log(cards.rows);
+    res.send(cards.rows);
 
     // db.query('SELECT * FROM rarepuppersdbschema.cards')
     //   .then(cards => {
@@ -80,9 +74,9 @@ router.get('/all', async (req, res) => {
 router.get('/:cardId', async (req, res) => {
     const card_id = req.params.cardId;
 
-    const { card } = await db.query('SELECT * FROM rarepuppersdbschema.cards WHERE _id = $1', [card_id]);
+    const card = await db.query('SELECT * FROM rarepuppersdbschema.cards WHERE _id = $1', [card_id]);
     
-    res.send(card);
+    res.send(card.rows[0]);
     
     // db.query('SELECT * FROM rarepuppersdbschema.cards WHERE _id = $1', [card_id])
     //   .then(card => {
