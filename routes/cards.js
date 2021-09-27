@@ -16,11 +16,8 @@ router.post('/mint', async (req, res) => {
     const dog_attributes = req.body.dog_attributes;
 
     // @TODO rewrite
-    db.query(`INSERT INSERT INTO rarepuppersdbschema.cards VALUES (DEFAULT, $1, $2, $3, $4, DEFAULT, DEFAULT)`, [user_id, dog_tier, dog_type, dog_attributes])
-      .then(out => {
-        // console.log(out);
-        res.send(out);
-    }).catch(e => console.error(e.stack));
+    const response = db.query(`INSERT INSERT INTO rarepuppersdbschema.cards VALUES (DEFAULT, $1, $2, $3, $4, DEFAULT, DEFAULT)`, [user_id, dog_tier, dog_type, dog_attributes]);
+    res.send(response);
 });
 
 // @TODO: Verify if valid URL
@@ -40,52 +37,26 @@ router.post('/rate', async (req, res) => {
 router.post('/', async (req, res) => {
     const user_id  = req.body.user_id;
 
-    // console.log(req.body);
-    // console.log(req.body.user_id);
-    // console.log(req.body['user_id']);
-    // console.log(user_id);
-    
-    const { rows } = await db.query('SELECT * FROM rarepuppersdbschema.cards WHERE owner_id = $1', [user_id])
-    // console.log(cards.rows);
+    const { rows } = await db.query('SELECT * FROM rarepuppersdbschema.cards WHERE owner_id = $1', [user_id]);
     res.send(rows);
-    // db.query('SELECT * FROM rarepuppersdbschema.cards WHERE owner_id = $1', [user_id])
-    // .then(cards => {
-    //     // console.log(cards.rows);
-    //     res.send(cards.rows);
-    // }).catch(e => console.error(e.stack));
 });
 
 // GET all cards
 router.get('/all', async (req, res) => {
-
-    const cards = await db.query('SELECT * FROM rarepuppersdbschema.cards');
-
-    console.log(cards.rows);
-    res.send(cards.rows);
-
-    // db.query('SELECT * FROM rarepuppersdbschema.cards')
-    //   .then(cards => {
-    //     // console.log(cards.rows);
-    //     res.send(cards.rows);
-    // }).catch(e => console.error(e.stack));
+    const { rows } = await db.query('SELECT * FROM rarepuppersdbschema.cards');
+    res.send(rows);
 });
 
 // GET card
 router.get('/:cardId', async (req, res) => {
     const card_id = req.params.cardId;
 
-    const card = await db.query('SELECT * FROM rarepuppersdbschema.cards WHERE _id = $1', [card_id]);
-    
-    res.send(card.rows[0]);
-    
-    // db.query('SELECT * FROM rarepuppersdbschema.cards WHERE _id = $1', [card_id])
-    //   .then(card => {
-    //     // console.log(card.rows[0]);
-    //     res.send(card.rows[0]);
-    // }).catch(e => console.error(e.stack));
+    const { rows } = await db.query('SELECT * FROM rarepuppersdbschema.cards WHERE _id = $1', [card_id]);
+    res.send(rows[0]);
 });
 
 // ----------------------------------------------------
+
 
 // Probably obsolete if/when using react router
 // ----------------------------------------------------
