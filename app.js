@@ -12,9 +12,13 @@ app.use(express.json());
 
 //mountRoutes(app);
 
+
 app.use('/users', users); 
 app.use('/cards', cards);
 
+app.post('/', (req, res)=>{
+	console.log(req.body);
+})
 
 // start server
 app.listen(port, () => {
