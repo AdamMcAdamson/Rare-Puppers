@@ -20,7 +20,6 @@ router.post('/mint', async (req, res) => {
     res.send(response);
 });
 
-// @TODO: Verify if valid URL
 router.post('/:cardId/edit', async (req, res) => {
     res.send("Edit card endpoint of cardId: " + req.params.cardId);
 });
@@ -65,7 +64,6 @@ router.get('/mint', async (req, res) => {
     res.send("Display mint cards form");
 });
 
-// @TODO: Verify if valid URL
 router.get('/:cardId/edit', async (req, res) => {
     res.send("Display card edit form of cardId: " + req.params.cardId);
 });
