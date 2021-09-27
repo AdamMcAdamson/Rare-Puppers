@@ -1,7 +1,6 @@
-const Router = require('express-promise-router')
+const express = require('express')
+const router = express.Router();
 const db = require('../db');
-
-const router = new Router();
 
 module.exports = router;
 
