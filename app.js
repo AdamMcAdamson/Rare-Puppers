@@ -12,8 +12,8 @@ mountRoutes(app);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use('/users', users); 
-app.use('/cards', cards);
+// app.use('/users', users); 
+// app.use('/cards', cards);
 
 app.post('/', (req, res)=>{
 	console.log(req.body);
