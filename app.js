@@ -10,9 +10,10 @@ app.use(express.json());
 
 mountRoutes(app);
 
-app.post('/', (req, res)=>{
-	console.log(req.body);
-})
+app.get('/', (req, res)=>{
+	res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
+});
+
 
 // start server
 app.listen(port, () => {
