@@ -4,7 +4,7 @@ import './App.css';
 
 class App extends Component {
 
-  state = { express: '' };
+  state = { out: '' };
 
   componentDidMount() {
     this.getBackend();
@@ -13,11 +13,11 @@ class App extends Component {
   getBackend = () => {
     fetch('/express_backend')
       .then(res => res.json())
-      .then(express => this.setState({ express }));
+      .then(out => this.setState({ out }));
   }
 
   render() {
-    const { express } = this.state;
+    const { out } = this.state;
     
     return (
       <div className="App">
@@ -25,7 +25,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <p>
             Edit <code>src/App.js</code> and save to reload.
-            {express}
+            {out}
           </p>
           <a
             className="App-link"
