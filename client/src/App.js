@@ -3,8 +3,10 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
-
-  state = { out: '' };
+  constructor(props){
+    super(props);
+    this.state = {out: 'hello'};
+  }
 
   componentDidMount() {
     this.getBackend();
