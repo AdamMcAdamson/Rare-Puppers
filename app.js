@@ -9,10 +9,12 @@ const port = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.use(express.static(path.join(__dirname, 'client/build')));
+
 mountRoutes(app);
 
 app.get('/', (req, res) => {
-	app.use(express.static(path.join(__dirname, 'client/build')));
+	res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
 
 app.get('/express_backend', (req, res)=>{
