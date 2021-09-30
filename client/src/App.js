@@ -15,7 +15,8 @@ class App extends Component {
   getBackend = () => {
     fetch('/express_backend')
       .then(res => res.json())
-      .then(out => this.setState({ out }));
+      .then(res => this.setState({out: res.out}));
+      
   }
 
   render() {
@@ -27,6 +28,7 @@ class App extends Component {
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
+          <p> {this.state.out} </p>
           <a
             className="App-link"
             href="https://reactjs.org"
