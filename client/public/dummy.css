@@ -1,34 +1,53 @@
-#card {
+body {
+  max-width: 100%;
+}
+
+.container {
+  display: grid;
+  width: 100%;
+  max-width: 100%;
+  min-height: 500px;
+  margin: auto;
+  grid-column-gap: 10px;
+  grid-row-gap: 20px;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+.Card {
   width: 250px;
   height: 350px;
   padding: 50;
-  position: absolute;
+  position: relative;
   background-color: aqua;
   border-radius: 10px;
+  overflow: hidden;
+  justify-self: center;
+  margin: 30px;
 }
 
-#card-image {
+.card-image {
   width: 200px;
   height: 200px;
   margin: 10px 25px;
   /*background-color: blueviolet;*/
 }
 
-#card-name {
+.card-name {
   font-size: 20px;
   width: 200px;
-  position: absolute;
+  position: relative;
   text-align: center;
-  bottom: 140px;
+  bottom: 38px;
   left: 25px;
+  display: inline-block;
   background-color: rgba(200, 200, 200, 0.9);
 }
 
-#card-tier {
+.card-tier {
   font-size: 32px;
   color: goldenrod;
   bottom: 303px;
-  position: absolute;
+  /* position: absolute; */
   width: 64px;
   text-align: center;
   left: 161px;
@@ -36,7 +55,7 @@
   border-radius: 0px 0px 0px 10px;
 }
 
-#card-stats {
-  position: absolute;
+.card-stats {
+  /* position: absolute; */
   padding: 0px 10px;
 }
