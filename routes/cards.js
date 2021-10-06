@@ -43,6 +43,7 @@ router.post('/', async (req, res) => {
 // GET all cards
 router.get('/all', async (req, res) => {
     const { rows } = await db.query('SELECT * FROM rarepuppersdbschema.cards');
+    console.log(rows);
     res.send(rows);
 });
 

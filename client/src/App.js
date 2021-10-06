@@ -26,6 +26,7 @@ class App extends Component {
         output += <Card name="Pablo the Pablano" tier={card.tier} dogtype={card.dogtype} upvotes={card.upvotes} downvotes={card.downvotes} attributes={card.attributes}/>;
       }
     }
+    console.log(output);
     return output;
   }
 
