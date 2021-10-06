@@ -7,8 +7,8 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {out: 'hello'};
+    this.cards = [];
   }
-
   componentDidMount() {
     this.getBackend();
   }
@@ -22,9 +22,7 @@ class App extends Component {
   getCards = () => {
     let output= <p>Hello</p>;
     if(this.cards !== undefined){
-      this.cards.array.forEach(element => {
-        
-      }); {
+      for (let card in this.cards){
         output += <Card name="Pablo the Pablano" tier={card.tier} dogtype={card.dogtype} upvotes={card.upvotes} downvotes={card.downvotes} attributes={card.attributes}/>;
       }
     }
@@ -32,14 +30,13 @@ class App extends Component {
     return output;
   }
 
-
   render() {
     
     return (
       <div className="App">
         <div id="cards">
           <div class="container">
-            {console.log(this.cards.toString())}
+            {console.log(this.cards)}
             {this.cards.map(card => <Card name="Pablo the Pablano" tier={card.tier} dogtype={card.dogtype} upvotes={card.upvotes} downvotes={card.downvotes} attributes={card.attributes}/>)}
           </div>
         </div>
