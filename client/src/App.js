@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Card from './components/Card';
 import './App.css';
 
+
 class App extends Component {
   constructor(props){
     super(props);
@@ -13,34 +14,29 @@ class App extends Component {
   }
 
   getBackend = () => {
-    fetch('/express_backend')
+    fetch('/cards/all')
       .then(res => res.json())
-      .then(res => this.setState({out: res.out}));
-      
+      .then(res => this.setState( this.state.cards = res ));
   }
+
+  getCards = () => {
+    let output= <p>Hello</p>;
+    if(this.state.cards !== undefined){
+      for (let card in this.state.cards) {
+        output += <Card name="Pablo the Pablano" tier={card.tier} dogtype={card.dogtype} upvotes={card.upvotes} downvotes={card.downvotes} attributes={card.attributes}/>;
+      }
+    }
+    return output;
+  }
+
 
   render() {
     
     return (
       <div className="App">
         <div id="cards">
-          <div class="container">   
-            <Card name="Pablo the Pablano" tier="SSS" dogtype="Pupper" upvotes="1002" downvotes="0" attributes="supreme cuddler, lick monster, hand shaker"/>
-            <Card name="Pablo the Pablano" tier="SSS" dogtype="Pupper" upvotes="1002" downvotes="0" attributes="supreme cuddler, lick monster, hand shaker"/>
-            <Card name="Pablo the Pablano" tier="SSS" dogtype="Pupper" upvotes="1002" downvotes="0" attributes="supreme cuddler, lick monster, hand shaker"/>
-            <Card name="Pablo the Pablano" tier="SSS" dogtype="Pupper" upvotes="1002" downvotes="0" attributes="supreme cuddler, lick monster, hand shaker"/>
-            <Card name="Pablo the Pablano" tier="SSS" dogtype="Pupper" upvotes="1002" downvotes="0" attributes="supreme cuddler, lick monster, hand shaker"/>
-            <Card name="Pablo the Pablano" tier="SSS" dogtype="Pupper" upvotes="1002" downvotes="0" attributes="supreme cuddler, lick monster, hand shaker"/>
-            <Card name="Pablo the Pablano" tier="SSS" dogtype="Pupper" upvotes="1002" downvotes="0" attributes="supreme cuddler, lick monster, hand shaker"/>
-            <Card name="Pablo the Pablano" tier="SSS" dogtype="Pupper" upvotes="1002" downvotes="0" attributes="supreme cuddler, lick monster, hand shaker"/>
-            <Card name="Pablo the Pablano" tier="SSS" dogtype="Pupper" upvotes="1002" downvotes="0" attributes="supreme cuddler, lick monster, hand shaker"/>
-            <Card name="Pablo the Pablano" tier="SSS" dogtype="Pupper" upvotes="1002" downvotes="0" attributes="supreme cuddler, lick monster, hand shaker"/>
-            <Card name="Pablo the Pablano" tier="SSS" dogtype="Pupper" upvotes="1002" downvotes="0" attributes="supreme cuddler, lick monster, hand shaker"/>
-            <Card name="Pablo the Pablano" tier="SSS" dogtype="Pupper" upvotes="1002" downvotes="0" attributes="supreme cuddler, lick monster, hand shaker"/>
-            <Card name="Pablo the Pablano" tier="SSS" dogtype="Pupper" upvotes="1002" downvotes="0" attributes="supreme cuddler, lick monster, hand shaker"/>
-            <Card name="Pablo the Pablano" tier="SSS" dogtype="Pupper" upvotes="1002" downvotes="0" attributes="supreme cuddler, lick monster, hand shaker"/>
-            <Card name="Pablo the Pablano" tier="SSS" dogtype="Pupper" upvotes="1002" downvotes="0" attributes="supreme cuddler, lick monster, hand shaker"/>
-            <Card name="Pablo the Pablano" tier="SSS" dogtype="Pupper" upvotes="1002" downvotes="0" attributes="supreme cuddler, lick monster, hand shaker"/>
+          <div class="container">
+            {this.getCards()}
           </div>
         </div>
       </div>
