@@ -16,13 +16,15 @@ class App extends Component {
   getBackend = () => {
     fetch('/cards/all')
       .then(res => res.json())
-      .then(res => this.setState( this.state.cards = res ));
+      .then(res => this.setState( this.cards = res ));
   }
 
   getCards = () => {
     let output= <p>Hello</p>;
-    if(this.state.cards !== undefined){
-      for (let card in this.state.cards) {
+    if(this.cards !== undefined){
+      this.cards.array.forEach(element => {
+        
+      }); {
         output += <Card name="Pablo the Pablano" tier={card.tier} dogtype={card.dogtype} upvotes={card.upvotes} downvotes={card.downvotes} attributes={card.attributes}/>;
       }
     }
@@ -37,7 +39,8 @@ class App extends Component {
       <div className="App">
         <div id="cards">
           <div class="container">
-            {this.getCards()}
+            {console.log(this.cards.toString())}
+            {this.cards.map(card => <Card name="Pablo the Pablano" tier={card.tier} dogtype={card.dogtype} upvotes={card.upvotes} downvotes={card.downvotes} attributes={card.attributes}/>)}
           </div>
         </div>
       </div>
