@@ -74,6 +74,7 @@ body {
 .card-name {
   font-size: 20px;
   width: 200px;
+  position: relative;
   bottom: 41px;
   left: 25px;
   display: block;
@@ -84,6 +85,7 @@ body {
   font-size: 32px;
   color: #daa520;
   width: 50px;
+  position: relative;
   bottom: 241px;
   left: 175px;
   background-color: #00ced1;
