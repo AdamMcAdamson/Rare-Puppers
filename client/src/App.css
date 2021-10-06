@@ -74,24 +74,21 @@ body {
 .card-name {
   font-size: 20px;
   width: 200px;
-  position: relative;
-  text-align: center;
-  bottom: 39px;
-  display: inline-block;
-  background-color: rgba(200, 200, 200, 0.9);
+  bottom: 41px;
+  left: 25px;
+  display: block;
+  background-color: hsla(0, 0%, 78.4%, 0.9);
 }
 
 .card-tier {
   font-size: 32px;
-  color: goldenrod;
-  bottom: 303px;
-  width: 64px;
-  text-align: center;
-  position: relative;
+  color: #daa520;
+  width: 50px;
   bottom: 241px;
-  left: 75px;
-  background-color: darkturquoise;
-  border-radius: 0px 0px 0px 10px;
+  left: 175px;
+  background-color: #00ced1;
+  border-radius: 0 0 0 10px;
+  display: block;
 }
 
 .card-stats {

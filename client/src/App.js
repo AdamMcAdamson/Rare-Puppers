@@ -10,24 +10,13 @@ class App extends Component {
     this.cards = [];
   }
   componentDidMount() {
-    this.getBackend();
-  }
-
-  getBackend = () => {
-    fetch('/cards/all')
-      .then(res => res.json())
-      .then(res => this.setState( this.cards = res ));
+    this.getCards();
   }
 
   getCards = () => {
-    let output= <p>Hello</p>;
-    if(this.cards !== undefined){
-      for (let card in this.cards){
-        output += <Card name="Pablo the Pablano" tier={card.tier} dogtype={card.dogtype} upvotes={card.upvotes} downvotes={card.downvotes} attributes={card.attributes}/>;
-      }
-    }
-    console.log(output);
-    return output;
+    fetch('/cards/all')
+      .then(res => res.json())
+      .then(res => this.setState( this.cards = res ));
   }
 
   render() {
