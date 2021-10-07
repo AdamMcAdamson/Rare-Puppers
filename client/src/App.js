@@ -5,11 +5,9 @@ import {
   Route,
   Link,
 } from 'react-router-dom'
-//import Card from './components/Card';
 import Cards_All from './views/cards_all'
 import Dummy from './views/dummy';
 import './App.css';
-import Card from './components/Card';
 
 
 class App extends Component {
@@ -37,7 +35,7 @@ class App extends Component {
             <li><Link to="/cards/all">View Cards</Link></li>
           </ul>
           <Switch>
-            <Route path="/cards/all" component={Cards_All}/>
+            <Route path="/cards/all" component={Cards_All} cards={this.cards}/>
             <Route path="/" component={Dummy}/>
           </Switch>
         </div>

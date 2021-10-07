@@ -6,7 +6,6 @@ class Card extends Component {
 	}
 
 	render() {
-    
 		return (
 		  <div className="Card">
 			<img class="card-image" src="https://www.protectorfiresafety.com/12748-thickbox_default/work-in-progress-.jpg" alt="cute dog"/>
@@ -19,7 +18,7 @@ class Card extends Component {
 			</div>
 		  </div>
 		);
-	  }
+	}
 }
 
 export default Card;
