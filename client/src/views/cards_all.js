@@ -14,8 +14,8 @@ class Cards_All extends Component {
 		  <div id="cards">
 			<div class="container">
 			  <p> JOHN CENA </p>
-			  {console.log(this.props.cards)}
-			  {this.props.cards.map(card => <Card name="Pablo the Pablano" tier={card.tier} dogtype={card.dogtype} upvotes={card.upvotes} downvotes={card.downvotes} attributes={card.attributes}/>)}
+			  {console.log(this.state.cards)}
+			  {this.state.cards.map(card => <Card name="Pablo the Pablano" tier={card.tier} dogtype={card.dogtype} upvotes={card.upvotes} downvotes={card.downvotes} attributes={card.attributes}/>)}
 			</div>
 		  </div>
 		</div>

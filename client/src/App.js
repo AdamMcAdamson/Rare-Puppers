@@ -14,7 +14,7 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {out: 'hello'};
-    this.cards = [];
+    //this.cards = [];
   }
   componentDidMount() {
     this.getCards();
@@ -23,7 +23,7 @@ class App extends Component {
   getCards = () => {
     fetch('/cards/all')
       .then(res => res.json())
-      .then(res => this.setState( this.cards = res ));
+      .then(res => this.setState( this.state.cards = res ));
   }
 
   render() {
@@ -32,10 +32,15 @@ class App extends Component {
         <div className="App">
           <ul className="header">
             <li><Link to="/">Dummy</Link></li>
-            <li><Link to="/cards/all">View Cards</Link></li>
+            <li><Link to={{
+              pathname:"/cards/all",
+              state: {
+                cards: this.state.cards
+              }
+            }}>View Cards</Link></li>
           </ul>
           <Switch>
-            <Route path="/cards/all" component={Cards_All} cards={this.cards}/>
+            <Route path="/cards/all" component={Cards_All}/>
             <Route path="/" component={Dummy}/>
           </Switch>
         </div>
