@@ -8,7 +8,7 @@ function Cards_All () {
 
 	const location = useLocation();
 	const cards = location.state.cards;
-
+	console.log(this.cards);
 
 	return (
 		<div className="Cards_All">
