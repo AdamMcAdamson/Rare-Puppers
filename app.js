@@ -6,6 +6,8 @@ const mountRoutes = require("./routes");
 const app = express();
 const port = process.env.PORT || 4000;
 
+console.log("HELLO: " + process.env.PGDATABASEURL);
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 

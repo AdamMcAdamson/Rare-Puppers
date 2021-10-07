@@ -6,10 +6,10 @@ import '../App.css';
 class Cards_All extends Component {
   constructor(props){
     super(props);
-    this.state = {out: 'hello'};
     this.cards = [];
   }
 
+  /*
   componentDidMount() {
     this.getCards();
   }
@@ -19,7 +19,7 @@ class Cards_All extends Component {
       .then(res => res.json())
       .then(res => this.setState( this.cards = res ));
   }
-
+*/
   render() {
     
     return (

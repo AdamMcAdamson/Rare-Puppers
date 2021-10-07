@@ -23,7 +23,7 @@ class App extends Component {
   }
 
   getCards = () => {
-    fetch('/api/cards/all')
+    fetch('/cards/all')
       .then(res => res.json())
       .then(res => this.setState( this.cards = res ));
   }
@@ -34,8 +34,8 @@ class App extends Component {
       <Router>
         <div className="App">
           <ul className="header">
-            <li><NavLink to="/">Dummy</NavLink></li>
-            <li><NavLink to="/cards/alll">View Cards</NavLink></li>
+            <li><Link to="/">Dummy</Link></li>
+            <li><Link to="/cards/all">View Cards</Link></li>
           </ul>
           <Switch>
             <Route path="/">
