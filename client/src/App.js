@@ -38,12 +38,8 @@ class App extends Component {
             <li><Link to="/cards/all">View Cards</Link></li>
           </ul>
           <Switch>
-            <Route path="/">
-              <Dummy />
-            </Route>
-            <Route path="/cards/all">
-              <Cards_All />
-            </Route>
+            <Route path="/cards/all" component={Cards_All}/>
+            <Route path="/" component={Dummy}/>
           </Switch>
         </div>
       </Router>

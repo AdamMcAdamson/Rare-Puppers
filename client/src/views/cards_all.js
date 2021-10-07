@@ -6,7 +6,7 @@ import '../App.css';
 class Cards_All extends Component {
   constructor(props){
     super(props);
-    this.cards = [];
+    //this.cards = [];
   }
 
   /*
@@ -21,17 +21,17 @@ class Cards_All extends Component {
   }
 */
   render() {
-    
-    return (
-      <div className="Cards_All">
-        <div id="cards">
-          <div class="container">
-            {console.log(this.cards)}
-            {this.cards.map(card => <Card name="Pablo the Pablano" tier={card.tier} dogtype={card.dogtype} upvotes={card.upvotes} downvotes={card.downvotes} attributes={card.attributes}/>)}
-          </div>
-        </div>
-      </div>
-    );
+	  return (
+		<div className="Cards_All">
+		  <div id="cards">
+			<div class="container">
+			  <p> JOHN CENA </p>
+			  {console.log(this.cards)}
+			  {this.cards.map(card => <Card name="Pablo the Pablano" tier={card.tier} dogtype={card.dogtype} upvotes={card.upvotes} downvotes={card.downvotes} attributes={card.attributes}/>)}
+			</div>
+		  </div>
+		</div>
+	  );
   }
 }
 
