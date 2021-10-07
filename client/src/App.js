@@ -26,6 +26,8 @@ class App extends Component {
       .then(res => this.setState( this.state.cards = res ));
   }
 
+
+  // @URGENT: Fix passing props to component while using React Router
   render() {
     return (
       <Router>
