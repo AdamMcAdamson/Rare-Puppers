@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import Card from '../components/Card';
 import '../App.css';
+import { useLocation } from 'react-router';
 
 
 class Cards_All extends Component {
-  constructor(props){
-    super(props);
-  }
+	constructor(props){
+		super(props);
+		const location = useLocation();
+		var cards = location.state.cards;
+	}
+
 
 	render() {
 	  return (
@@ -14,8 +18,8 @@ class Cards_All extends Component {
 		  <div id="cards">
 			<div class="container">
 			  <p> JOHN CENA </p>
-			  {console.log(this.state.cards)}
-			  {this.state.cards.map(card => <Card name="Pablo the Pablano" tier={card.tier} dogtype={card.dogtype} upvotes={card.upvotes} downvotes={card.downvotes} attributes={card.attributes}/>)}
+			  {console.log(this.cards)}
+			  {this.cards.map(card => <Card name="Pablo the Pablano" tier={card.tier} dogtype={card.dogtype} upvotes={card.upvotes} downvotes={card.downvotes} attributes={card.attributes}/>)}
 			</div>
 		  </div>
 		</div>
