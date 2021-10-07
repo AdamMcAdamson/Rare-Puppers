@@ -3,5 +3,5 @@ const cards = require('./cards')
 
 module.exports = app => {
   app.use('/users', users)
-  app.use('/cards', cards)
+  app.use('/api/cards', cards)
 } 

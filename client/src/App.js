@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
-import Card from './components/Card';
+import {
+  HashRouter as Router,
+  Switch,
+  Route,
+  Link,
+} from 'react-router-dom'
+//import Card from './components/Card';
+import Cards_All from './views/cards_all'
+import Dummy from './views/dummy';
 import './App.css';
+import Card from './components/Card';
 
 
 class App extends Component {
@@ -14,7 +23,7 @@ class App extends Component {
   }
 
   getCards = () => {
-    fetch('/cards/all')
+    fetch('/api/cards/all')
       .then(res => res.json())
       .then(res => this.setState( this.cards = res ));
   }
@@ -22,14 +31,22 @@ class App extends Component {
   render() {
     
     return (
-      <div className="App">
-        <div id="cards">
-          <div class="container">
-            {console.log(this.cards)}
-            {this.cards.map(card => <Card name="Pablo the Pablano" tier={card.tier} dogtype={card.dogtype} upvotes={card.upvotes} downvotes={card.downvotes} attributes={card.attributes}/>)}
-          </div>
+      <Router>
+        <div className="App">
+          <ul className="header">
+            <li><NavLink to="/">Dummy</NavLink></li>
+            <li><NavLink to="/cards/alll">View Cards</NavLink></li>
+          </ul>
+          <Switch>
+            <Route path="/">
+              <Dummy />
+            </Route>
+            <Route path="/cards/all">
+              <Cards_All />
+            </Route>
+          </Switch>
         </div>
-      </div>
+      </Router>
     );
   }
 }
