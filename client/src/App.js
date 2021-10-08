@@ -29,6 +29,10 @@ class App extends Component {
 
   // @URGENT: Fix passing props to component while using React Router
   render() {
+
+    console.log("BUGHLSAKJHF");
+    console.log(this.state.cards);
+
     return (
       <Router>
         <div className="App">
