@@ -25,4 +25,4 @@ function CardsAll () {
 }
 
 
-export default connect(null, { getCardsAll })(getCardsAll)
+export default CardsAll;
