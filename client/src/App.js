@@ -37,7 +37,7 @@ class App extends Component {
             <li><Link to="/cards/all">View Cards</Link></li>
           </ul>
           <Switch>
-            <Route exact path="/cards/all" render={(props) => {
+            <Route path="/cards/all" render={(props) => {
               (<Cards_All {...props} cards={this.state.cards}/>)
             }}/>
             <Route path="/" component={Dummy}/>
