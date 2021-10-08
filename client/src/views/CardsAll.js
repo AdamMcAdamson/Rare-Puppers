@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import Card from '../components/Card';
 import '../App.css';
 
+import { connect } from 'react-redux'
+import { getCardsAll } from '../redux/selectors'
 
-function Cards_All () {
+
+function CardsAll () {
 
 	console.log("Hello: " + this.state.cards);
 	console.log("Heyyooo: " + this.props.cards);
@@ -22,4 +25,4 @@ function Cards_All () {
 }
 
 
-export default Cards_All;
+export default connect(null, { getCardsAll })(getCardsAll)
