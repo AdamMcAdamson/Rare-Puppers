@@ -30,9 +30,6 @@ class App extends Component {
   // @URGENT: Fix passing props to component while using React Router
   render() {
 
-    console.log("BUGHLSAKJHF");
-    console.log(this.state.cards);
-
     return (
       <Router>
         <div className="App">
@@ -41,10 +38,7 @@ class App extends Component {
               <Link to="/">Dummy</Link>
             </li>
             <li>
-              <Link to={{ 
-                pathname: '/cards/all', 
-                state: { cards: this.state.cards } 
-              }}/>
+              <Link to="/cards/all">View Cards</Link>
             </li>
           </ul>
           <Switch>
