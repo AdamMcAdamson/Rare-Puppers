@@ -5,7 +5,7 @@ import {
   Route,
   Link,
 } from 'react-router-dom'
-import Cards_All from './views/cards_all'
+import CardsAll from './views/CardsAll'
 import Dummy from './views/dummy';
 import './App.css';
 
@@ -48,9 +48,7 @@ class App extends Component {
             </li>
           </ul>
           <Switch>
-            <Route path="/cards/all" render={(props) => {
-              (<Cards_All {...props} cards={this.state.cards}/>)
-            }}/>
+            <Route path="/cards/all" component={CardsAll}
             <Route path="/" component={Dummy}/>
           </Switch>
         </div>
