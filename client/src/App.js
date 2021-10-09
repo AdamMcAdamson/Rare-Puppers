@@ -48,7 +48,7 @@ class App extends Component {
             </li>
           </ul>
           <Switch>
-            <Route path="/cards/all" component={CardsAll}
+            <Route path="/cards/all" component={CardsAll}/>
             <Route path="/" component={Dummy}/>
           </Switch>
         </div>
