@@ -18,7 +18,7 @@ class CardsAll extends React.Component {
 			<div className="Cards_All">
 				<div id="cards">
 					<div class="container">
-						{this.cards.map(card => <Card name="Pablo the Pablano" tier={card.tier} dogtype={card.dogtype} upvotes={card.upvotes} downvotes={card.downvotes} attributes={card.attributes}/>)}
+						{cards.map(card => <Card name="Pablo the Pablano" tier={card.tier} dogtype={card.dogtype} upvotes={card.upvotes} downvotes={card.downvotes} attributes={card.attributes}/>)}
 					</div>
 				</div>
 			</div>
