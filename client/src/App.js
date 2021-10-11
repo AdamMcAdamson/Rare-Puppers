@@ -17,7 +17,7 @@ class App extends Component {
     //this.cards = [];
   }
   componentDidMount() {
-    this.getCards();
+    //this.getCards();
   }
 
   getCards = () => {
