@@ -33,14 +33,12 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <ul className="header">
-            <li>
-              <Link to="/">Dummy</Link>
-            </li>
-            <li>
-              <Link to="/cards/all">View Cards</Link>
-            </li>
-          </ul>
+
+          <Link to="/">Dummy</Link>
+          <br/>
+          <Link to="/cards/all">View Cards</Link>
+          <br/>
+
           <Switch>
             <Route path="/cards/all" component={CardsAll}/>
             <Route path="/" component={Dummy}/>
