@@ -44,25 +44,31 @@ router.post('/', async (req, res) => {
 router.get('/all', async (req, res) => {
     let query = "SELECT * FROM rarepuppersdbschema.cards";
     let order = " ORDER BY ";
+    let dir = "";
     if (typeof req.query.sort !== undefined)
     {
         switch (req.query.sort) {
             case "_id":
-                order = "_id ASC;";
+                order += "_id ASC";
+                //dir = "ASC";
                 break;
             case "upvotes":
-                order = "upvotes DESC;";
+                order += "upvotes DESC";
+                //dir =  "DESC";
                 break;
             case "tier":
-                order = "tier DESC;";
+                order += "tier DESC";
+                //dir =  "DESC";
                 break;
             default:
-                order = "_id ASC;";
+                order += "_id ASC";
+                //dir = "ASC";
         }
         query += order;
     } 
+    console.log("query: " + query);
     const { rows } = await db.query(query);
-    console.log(rows);
+    //console.log(rows);
     res.send(rows);
 });
 
