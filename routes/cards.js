@@ -48,16 +48,16 @@ router.get('/all', async (req, res) => {
     {
         switch (req.query.sort) {
             case "_id":
-                order = "_id ASC";
+                order = "_id ASC;";
                 break;
             case "upvotes":
-                order = "upvotes DESC";
+                order = "upvotes DESC;";
                 break;
             case "tier":
-                order = "tier DESC";
+                order = "tier DESC;";
                 break;
             default:
-                order = "_id ASC";
+                order = "_id ASC;";
         }
         query += order;
     } 
