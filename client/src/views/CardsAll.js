@@ -20,9 +20,10 @@ function CardsAll (props) {
 
 	useEffect(
 		() => {
-			fetch('/cards/all')
+			fetch('/cards/all?sort=' + sort)
       		.then(res => res.json())
-    		.then(res => setCards(res)).then(cards.sort((el1, el2) => {
+    		.then(res => setCards(res))
+			/*.then(cards.sort((el1, el2) => {
 				console.log("SORT: " + sort);
 				if(sort === "_id" || sort === "") {
 					return (Number(el1[sort]) <= Number(el2[sort])) ? -1 : 1;
@@ -30,7 +31,7 @@ function CardsAll (props) {
 				else {
 					return (Number(el1[sort]) <= Number(el2[sort])) ? 1 : -1;
 				}
-			}))
+			}))*/
 		},
 		[reload, sort]
 	);

@@ -42,7 +42,26 @@ router.post('/', async (req, res) => {
 
 // GET all cards
 router.get('/all', async (req, res) => {
-    const { rows } = await db.query('SELECT * FROM rarepuppersdbschema.cards');
+    let query = "SELECT * FROM rarepuppersdbschema.cards";
+    let order = " ORDER BY ";
+    if (typeof req.query.sort !== undefined)
+    {
+        switch (req.query.sort) {
+            case "_id":
+                order = "_id ASC";
+                break;
+            case "upvotes":
+                order = "upvotes DESC";
+                break;
+            case "tier":
+                order = "tier DESC";
+                break;
+            default:
+                order = "_id ASC";
+        }
+        query += order;
+    } 
+    const { rows } = await db.query(query);
     console.log(rows);
     res.send(rows);
 });
