@@ -58,6 +58,8 @@ COMMENT ON COLUMN rarepuppersdbschema_dev.cards.tier IS 'card tier';
 
 COMMENT ON COLUMN rarepuppersdbschema_dev.cards.attributes IS 'dog attributes';
 
+ALTER TABLE rarepuppersdbschema_dev.dogs ADD CONSTRAINT fk_owner_id FOREIGN KEY ( owner_id ) REFERENCES rarepuppersdbschema_dev.users( "_id" );
+
 ALTER TABLE rarepuppersdbschema_dev.cards ADD CONSTRAINT fk_owner_id FOREIGN KEY ( owner_id ) REFERENCES rarepuppersdbschema_dev.users( "_id" );
 
 ALTER TABLE rarepuppersdbschema_dev.cards ADD CONSTRAINT fk_dog_id FOREIGN KEY ( dog_id ) REFERENCES rarepuppersdbschema_dev.dogs( "_id" );
