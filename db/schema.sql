@@ -1,6 +1,8 @@
-CREATE SCHEMA IF NOT EXISTS rarepuppersdbschema;
+CREATE SCHEMA IF NOT EXISTS rarepuppersdbschema_dev;
 
-CREATE  TABLE rarepuppersdbschema.users ( 
+CREATE TYPE dog_type AS ENUM ('pupper', 'yapper', 'doggo', 'woofer', 'floofer');
+
+CREATE  TABLE rarepuppersdbschema_dev.users ( 
 	"_id"                bigint  NOT NULL GENERATED ALWAYS AS IDENTITY,
 	username             varchar(20)  NOT NULL ,
 	passphrase           text DEFAULT 'pass' NOT NULL ,
@@ -8,39 +10,54 @@ CREATE  TABLE rarepuppersdbschema.users (
 	CONSTRAINT pk_users__id PRIMARY KEY ( "_id" )
  );
 
-COMMENT ON COLUMN rarepuppersdbschema.users."_id" IS 'user id';
+COMMENT ON COLUMN rarepuppersdbschema_dev.users."_id" IS 'user id';
 
-COMMENT ON COLUMN rarepuppersdbschema.users.username IS 'username';
+COMMENT ON COLUMN rarepuppersdbschema_dev.users.username IS 'username';
 
-COMMENT ON COLUMN rarepuppersdbschema.users.passphrase IS 'user password';
+COMMENT ON COLUMN rarepuppersdbschema_dev.users.passphrase IS 'user password';
 
-COMMENT ON COLUMN rarepuppersdbschema.users.money IS 'user money';
+COMMENT ON COLUMN rarepuppersdbschema_dev.users.money IS 'user money';
 
-CREATE  TABLE rarepuppersdbschema.cards ( 
+CREATE  TABLE rarepuppersdbschema_dev.dogs ( 
 	"_id"                bigint  NOT NULL GENERATED ALWAYS AS IDENTITY,
-	owner_id             bigint  NOT NULL ,
+	owner_id			 bigint  NOT NULL,
+	dog_name             text  NOT NULL ,
+	dog_type           	 text DEFAULT 'pass' NOT NULL ,
+	CONSTRAINT pk_users__id PRIMARY KEY ( "_id" )
+ );
+
+COMMENT ON COLUMN rarepuppersdbschema_dev.dogs.dog_name IS 'dog id';
+
+COMMENT ON COLUMN rarepuppersdbschema_dev.dogs.dog_type IS 'dog type';
+
+CREATE  TABLE rarepuppersdbschema_dev.cards ( 
+	"_id"                bigint  NOT NULL GENERATED ALWAYS AS IDENTITY,
+	owner_id             bigint  NOT NULL,
+	dog_id			 	 bigint  NOT NULL,
+	card_name	 	 	 text  NOT NULL,
 	tier                 smallint  NOT NULL ,
-	dogtype              text  NOT NULL ,
 	attributes           text[]  NOT NULL ,
 	upvotes              bigint DEFAULT 0 NOT NULL ,
 	downvotes            bigint DEFAULT 0 NOT NULL ,
 	CONSTRAINT pk_cards__id PRIMARY KEY ( "_id" )
  );
 
-COMMENT ON COLUMN rarepuppersdbschema.cards."_id" IS 'card id';
+COMMENT ON COLUMN rarepuppersdbschema_dev.cards."_id" IS 'card id';
 
-COMMENT ON COLUMN rarepuppersdbschema.cards.owner_id IS 'owner user_id';
+COMMENT ON COLUMN rarepuppersdbschema_dev.cards.owner_id IS 'owner user_id';
 
-COMMENT ON COLUMN rarepuppersdbschema.cards.tier IS 'card tier';
+COMMENT ON COLUMN rarepuppersdbschema_dev.cards.display_name IS 'card display name';
 
-COMMENT ON COLUMN rarepuppersdbschema.cards.dogtype IS 'dog type';
+COMMENT ON COLUMN rarepuppersdbschema_dev.cards.tier IS 'card tier';
 
-COMMENT ON COLUMN rarepuppersdbschema.cards.attributes IS 'dog attributes';
+COMMENT ON COLUMN rarepuppersdbschema_dev.cards.attributes IS 'dog attributes';
 
-ALTER TABLE rarepuppersdbschema.cards ADD CONSTRAINT fk_owner_id FOREIGN KEY ( owner_id ) REFERENCES rarepuppersdbschema.users( "_id" );
+ALTER TABLE rarepuppersdbschema_dev.cards ADD CONSTRAINT fk_owner_id FOREIGN KEY ( owner_id ) REFERENCES rarepuppersdbschema_dev.users( "_id" );
+
+ALTER TABLE rarepuppersdbschema_dev.cards ADD CONSTRAINT fk_dog_id FOREIGN KEY ( dog_id ) REFERENCES rarepuppersdbschema_dev.dogs( "_id" );
 
 -- insert user example
--- INSERT INTO rarepuppersdbschema.users VALUES (DEFAULT, 'Adam', 'pass', 100)
+-- INSERT INTO rarepuppersdbschema_dev.users VALUES (DEFAULT, 'Adam', 'pass', 100)
 
 -- insert card example
--- INSERT INTO rarepuppersdbschema.cards VALUES (DEFAULT, 1, 10, 'pupper', '{"supreme cuddler", "lick monster", "hand shaker"}', DEFAULT, DEFAULT)
+-- INSERT INTO rarepuppersdbschema_dev.cards VALUES (DEFAULT, 1, 'Pablo', 'Pablo the Pablano', 10, 'pupper', '{"supreme cuddler", "lick monster", "hand shaker"}', DEFAULT, DEFAULT)

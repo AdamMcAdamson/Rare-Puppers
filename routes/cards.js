@@ -49,6 +49,7 @@ router.get('/all', async (req, res) => {
     {
         switch (req.query.sort) {
             case "_id":
+                // @TODO: test/use `_id $1` and dir instead
                 order += "_id ASC";
                 //dir = "ASC";
                 break;
