@@ -67,7 +67,7 @@ router.get('/all', async (req, res) => {
         }
         query += order;
     } 
-    console.log("query: " + query);
+    //console.log("query: " + query);
     const { rows } = await db.query(query);
     //console.log(rows);
     res.send(rows);

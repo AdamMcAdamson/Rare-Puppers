@@ -23,15 +23,6 @@ function CardsAll (props) {
 			fetch('/cards/all?sort=' + sort)
       		.then(res => res.json())
     		.then(res => setCards(res))
-			/*.then(cards.sort((el1, el2) => {
-				console.log("SORT: " + sort);
-				if(sort === "_id" || sort === "") {
-					return (Number(el1[sort]) <= Number(el2[sort])) ? -1 : 1;
-				}
-				else {
-					return (Number(el1[sort]) <= Number(el2[sort])) ? 1 : -1;
-				}
-			}))*/
 		},
 		[reload, sort]
 	);

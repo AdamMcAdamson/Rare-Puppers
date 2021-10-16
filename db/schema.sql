@@ -1,6 +1,6 @@
 CREATE SCHEMA IF NOT EXISTS rarepuppersdbschema_dev;
 
-CREATE TYPE dog_type AS ENUM ('pupper', 'yapper', 'doggo', 'woofer', 'floofer');
+CREATE TYPE dogtype AS ENUM ('pupper', 'yapper', 'doggo', 'woofer', 'floofer');
 
 CREATE  TABLE rarepuppersdbschema_dev.users ( 
 	"_id"                bigint  NOT NULL GENERATED ALWAYS AS IDENTITY,
@@ -22,11 +22,15 @@ CREATE  TABLE rarepuppersdbschema_dev.dogs (
 	"_id"                bigint  NOT NULL GENERATED ALWAYS AS IDENTITY,
 	owner_id			 bigint  NOT NULL,
 	dog_name             text  NOT NULL ,
-	dog_type           	 text DEFAULT 'pass' NOT NULL ,
+	dog_type           	 dogtype NOT NULL ,
 	CONSTRAINT pk_users__id PRIMARY KEY ( "_id" )
  );
 
-COMMENT ON COLUMN rarepuppersdbschema_dev.dogs.dog_name IS 'dog id';
+COMMENT ON COLUMN rarepuppersdbschema_dev.dogs."_id" IS 'dog id';
+
+COMMENT ON COLUMN rarepuppersdbschema_dev.cards.owner_id IS 'owner user id';
+
+COMMENT ON COLUMN rarepuppersdbschema_dev.dogs.dog_name IS 'dog name';
 
 COMMENT ON COLUMN rarepuppersdbschema_dev.dogs.dog_type IS 'dog type';
 
@@ -44,7 +48,9 @@ CREATE  TABLE rarepuppersdbschema_dev.cards (
 
 COMMENT ON COLUMN rarepuppersdbschema_dev.cards."_id" IS 'card id';
 
-COMMENT ON COLUMN rarepuppersdbschema_dev.cards.owner_id IS 'owner user_id';
+COMMENT ON COLUMN rarepuppersdbschema_dev.cards.owner_id IS 'owner user id';
+
+COMMENT ON COLUMN rarepuppersdbschema_dev.cards.dog_id IS 'dog id';
 
 COMMENT ON COLUMN rarepuppersdbschema_dev.cards.display_name IS 'card display name';
 
