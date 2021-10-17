@@ -9,6 +9,6 @@ module.exports = router;
 router.get('/:userId', async (req, res) => {
   const user_id = req.params.user_id;
 
-  const { rows } = await db.query('SELECT * FROM rarepuppersdbschema.users WHERE _id = $1', [user_id]);
+  const { rows } = await db.query(`SELECT * FROM rarepuppersdbschema.users WHERE _id = $1`, [user_id]);
   res.send(rows[0]);
 });
