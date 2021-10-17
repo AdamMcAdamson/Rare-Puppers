@@ -21,8 +21,8 @@ COMMENT ON COLUMN rarepuppersdbschema_dev.users.money IS 'user money';
 CREATE  TABLE rarepuppersdbschema_dev.dogs ( 
 	"_id"                bigint  NOT NULL GENERATED ALWAYS AS IDENTITY,
 	owner_id			 bigint  NOT NULL,
-	dog_name             text  NOT NULL ,
-	dog_type           	 dogtype NOT NULL ,
+	dog_name             text  NOT NULL,
+	dog_type           	 dogtype NOT NULL 
 	CONSTRAINT pk_users__id PRIMARY KEY ( "_id" )
  );
 
@@ -40,10 +40,10 @@ CREATE  TABLE rarepuppersdbschema_dev.cards (
 	dog_id			 	 bigint  NOT NULL,
 	dog_owner_id		 bigint  NOT NULL,
 	card_name	 	 	 text  NOT NULL,
-	tier                 smallint  NOT NULL ,
-	attributes           text[]  NOT NULL ,
-	upvotes              bigint DEFAULT 0 NOT NULL ,
-	downvotes            bigint DEFAULT 0 NOT NULL ,
+	tier                 smallint  NOT NULL,
+	attributes           text[]  NOT NULL,
+	upvotes              bigint DEFAULT 0 NOT NULL,
+	downvotes            bigint DEFAULT 0 NOT NULL,
 	CONSTRAINT pk_cards__id PRIMARY KEY ( "_id" )
  );
 
