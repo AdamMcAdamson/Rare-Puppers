@@ -42,7 +42,7 @@ function CardsAll (props) {
 		</div>
 			<div id="cards">
 				<div class="container">
-					{cards.map(card => <Card onClick={()=>dispatch({type: "clicked", id: card._id})} zoom={(id) => setZoomed(id)} card_id={card._id} name={card.card_name} tier={card.tier + "/10"} attributes={card.attributes} upvotes={card.upvotes} downvotes={card.downvotes} />)}
+					{cards.map(card => <Card onClick={()=>dispatch({type: "clicked", id: card._id})} zoom={(id) => setZoomed(id)} card_id={card._id} card_name={card.card_name} owner={card.owner_id} dog_id={card.dog_id} tier={card.tier + "/10"} attributes={card.attributes} upvotes={card.upvotes} downvotes={card.downvotes} />)}
 				</div>
 			</div>
 		</div>
