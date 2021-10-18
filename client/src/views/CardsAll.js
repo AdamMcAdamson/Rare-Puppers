@@ -14,7 +14,7 @@ function reducer(zoomState, action) {
 function CardsAll (props) {
 	const [zoomState, dispatch] = useReducer(reducer, 0);
 	const [reload, setReload] = useState(0);
-	const [cards, setCards] = useState();
+	const [cards, setCards] = useState([{"_id": "1","owner_id": "1","dog_id": "1","card_name": "Pablo the Poblano","tier": 12,"attributes": ["derp","if it fits i sits","blep"],"upvotes": "0","downvotes": "0"},{"_id": "2","owner_id": "1","dog_id": "1","card_name": "Pablo the Pirate","tier": 19,"attributes": ["derp","sit","bamboozled"],"upvotes": "0","downvotes": "0"},{"_id": "3","owner_id": "1","dog_id": "6","card_name": "Chico the Wizard","tier": 99,"attributes": ["derp","sit","blep"],"upvotes": "0","downvotes": "0"},{"_id": "4","owner_id": "2","dog_id": "2","card_name": "Coco the Quick","tier": 17,"attributes": ["contains zoomies","very fast doggo running at incredible high speed"],"upvotes": "0","downvotes": "0"},{"_id": "5","owner_id": "3","dog_id": "3","card_name": "Lady the Derp","tier": 14,"attributes": ["derp","if it fits i sits","MOWF"],"upvotes": "0","downvotes": "0"},{"_id": "6","owner_id": "1","dog_id": "5","card_name": "Headwarmer","tier": 22,"attributes": ["sit","if it fits i sits","sploot"],"upvotes": "0","downvotes": "0"},{"_id": "7","owner_id": "1","dog_id": "4","card_name": "Lumbering jack","tier": 13,"attributes": ["shoob","protec","maximum borkdrive"],"upvotes": "0","downvotes": "0"}]);
 	const search = useLocation().search;
 	const sort = new URLSearchParams(search).get("sort");
 
