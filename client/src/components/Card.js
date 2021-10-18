@@ -10,7 +10,6 @@ function Card (props) {
 		<a class="card-tier">{props.tier}</a>
 		<div class="card-stats">
 			<div class="card-ratings">Upvotes: {props.upvotes}  Downvotes: {props.downvotes}</div>
-			<div class="card-type">{props.dogtype}</div>
 			<div class="card-attributes">{props.attributes}</div>
 		</div>
 		</div>
