@@ -14,7 +14,7 @@ function reducer(zoomState, action) {
 function CardsAll (props) {
 	const [zoomState, dispatch] = useReducer(reducer, 0);
 	const [reload, setReload] = useState(0);
-	const [cards, setCards] = useState(0);
+	const [cards, setCards] = useState();
 	const search = useLocation().search;
 	const sort = new URLSearchParams(search).get("sort");
 
