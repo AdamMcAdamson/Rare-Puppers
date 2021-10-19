@@ -45,7 +45,7 @@ router.post('/', async (req, res) => {
 
 // GET all cards
 router.get('/all', async (req, res) => {
-    let query = "SELECT * FROM rarepuppersdbschema_dev.cards FULL OUTER JOIN rarepuppersdbschema_dev.dogs ON rarepuppersdbschema_dev.cards.dog_id=rarepuppersdbschema_dev.dogs._id";
+    let query = "SELECT * FROM rarepuppersdbschema_dev.cards FULL OUTER JOIN rarepuppersdbschema_dev.dogs ON rarepuppersdbschema_dev.cards.dog_id=rarepuppersdbschema_dev.dogs.dog_id";
     let order = " ORDER BY rarepuppersdbschema_dev.cards.";
     let dir = "";
     if (typeof req.query.sort !== undefined)
@@ -53,7 +53,7 @@ router.get('/all', async (req, res) => {
         switch (req.query.sort) {
             case "_id":
                 // @TODO: test/use `_id $1` and dir instead of current solution
-                order += "_id ASC";
+                order += "card_id ASC";
                 //dir = "ASC";
                 break;
             case "upvotes":
@@ -65,7 +65,7 @@ router.get('/all', async (req, res) => {
                 //dir =  "DESC";
                 break;
             default:
-                order += "_id ASC";
+                order += "card_id ASC";
                 //dir = "ASC";
         }
         query += order;
