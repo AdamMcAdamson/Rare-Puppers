@@ -9,7 +9,8 @@ function Card (props) {
 		<a class="card-name">{props.card_name}</a>
 		<a class="card-tier">{props.tier}</a>
 		<div class="card-stats">
-			<div class="card-dog-name"></div>
+			<div class="card-dog-name">{props.dog_name}</div>
+			<div class="card-dog-type">{props.dog_type}</div>
 			<div class="card-ratings">Upvotes: {props.upvotes}  Downvotes: {props.downvotes}</div>
 			<div class="card-attributes">{props.attributes}</div>
 		</div>
