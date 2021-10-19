@@ -46,7 +46,7 @@ router.post('/', async (req, res) => {
 // GET all cards
 router.get('/all', async (req, res) => {
     let query = "SELECT * FROM rarepuppersdbschema_dev.cards FULL OUTER JOIN rarepuppersdbschema_dev.dogs ON rarepuppersdbschema_dev.cards.dog_id=rarepuppersdbschema_dev.dogs._id";
-    let order = " ORDER BY ";
+    let order = " ORDER BY rarepuppersdbschema_dev.cards.";
     let dir = "";
     if (typeof req.query.sort !== undefined)
     {
