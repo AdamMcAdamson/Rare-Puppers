@@ -6,6 +6,7 @@ import {
   Link,
 } from 'react-router-dom'
 import CardsAll from './views/CardsAll'
+import Mint from './views/Mint'
 import Dummy from './views/dummy';
 import './App.css';
 
@@ -38,9 +39,12 @@ class App extends Component {
           <br/>
           <Link to="/cards/all">View Cards</Link>
           <br/>
+          <Link to="/mint">Mint Card</Link>
+          <br/>
 
           <Switch>
             <Route path="/cards/all" component={CardsAll}/>
+            <Route path="/mint" component={Mint}/>
             <Route path="/" component={Dummy}/>
           </Switch>
         </div>

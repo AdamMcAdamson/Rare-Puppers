@@ -114,3 +114,20 @@ body {
   bottom: 75px;
   padding: 0px 10px;
 }
+
+#mint-container {
+  max-width: 300px;
+  margin: auto;
+}
+
+.mint-form-input {
+  float: right;
+}
+
+.mint-form-label {
+  float: left;
+}
+
+.mint-form-submit {
+  width: 50%;
+}

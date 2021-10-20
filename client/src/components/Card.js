@@ -12,6 +12,7 @@ function Card (props) {
 			<div class="card-dog-name">{props.dog_name}</div>
 			<div class="card-dog-type">{props.dog_type}</div>
 			<div class="card-ratings">Upvotes: {props.upvotes}  Downvotes: {props.downvotes}</div>
+			{/* @TODO: cleanup attribute formating jank */}
 			<div class="card-attributes">{props.attributes.toString().replaceAll(",", ", ")}</div>
 		</div>
 		</div>
