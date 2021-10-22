@@ -1,25 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Card from '../components/Card';
 import '../App.css';
 
+const initialFormData = Object.freeze({
+	owner_id: "",
+	dog_id: "",
+	dog_owner_id:"",
+	card_name: "",
+	tier: "",
+	attributes: []
+})
 
 function Mint (props) {
+	const [formData, updateFormData] = useState(initialFormData);
+
+	const handleChange = (e) => {
+		updateFormData({
+			...formData,
+	
+			[e.target.name]: e.target.value.trim(),
+		});
+	  };	
+
 	const handleSubmit = (e) =>{
+		e.preventDefault();
 		console.log("HANDLE SUBMIT");
+		console.log(formData)
 		fetch('/mint', {
 			method: 'POST',
 			headers: {
 				'Accept': 'application/json',
 				'Content-Type': 'application/json',
 			},
-			body: JSON.stringify({
-				owner_id: e.target.owner_id,
-				dog_id: e.target.dog_id,
-				dog_owner_id: e.target.dog_owner_id,
-				card_name: e.target.card_name,
-				tier: e.target.tier,
-				attributes: e.tartet.attributes.split(",").map(a => a.trim())
-			})
+			body: formData
 		})
 	}
 
