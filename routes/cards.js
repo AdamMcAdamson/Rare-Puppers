@@ -15,7 +15,7 @@ router.post('/mint', async (req, res) => {
     const dog_owner_id = req.body.dog_owner_id;
     const card_name = req.body.card_name;
     const tier = req.body.tier;
-    const attributes = req.body.attributes;
+    const attributes = "{" + req.body.attributes + "}";
 
     // Example:
     // INSERT INTO rarepuppersdbschema_dev.cards VALUES (DEFAULT, 1, 1, 1, 'Pablo the Pablano', 11, '{"derp", "if it fits i sits", "blep"}', DEFAULT, DEFAULT)
