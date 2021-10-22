@@ -26,7 +26,7 @@ function Mint (props) {
 		e.preventDefault();
 		console.log("HANDLE SUBMIT");
 		console.log(formData)
-		fetch('/mint', {
+		fetch('/cards/mint', {
 			method: 'POST',
 			headers: {
 				'Accept': 'application/json',
