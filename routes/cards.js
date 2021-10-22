@@ -12,7 +12,7 @@ module.exports = router;
 router.post('/mint', async (req, res) => {
     const owner_id = req.body.owner_id;
     const dog_id = req.body.dog_id;
-    const dog_owner_id = req.body.dog_owner_id;
+    const dog_owner_id = req.body.dog_owner_id; // unnecessary
     const card_name = req.body.card_name;
     const tier = req.body.tier;
     const attributes = req.body.attributes.split(",").map((e)=>e.trim());
