@@ -20,6 +20,7 @@ router.post('/mint', async (req, res) => {
     // Example:
     // INSERT INTO rarepuppersdbschema_dev.cards VALUES (DEFAULT, 1, 1, 1, 'Pablo the Pablano', 11, '{"derp", "if it fits i sits", "blep"}', DEFAULT, DEFAULT)
     console.log("MINT POST");
+    console.log(owner_id + " : " + dog_id + " : " + dog_owner_id + " : " + card_name + " : " + tier + " : "+ attributes)
     const response = db.query(`INSERT INSERT INTO rarepuppersdbschema_dev.cards VALUES (DEFAULT, $1, $2, $3, $4, $5, $6, DEFAULT, DEFAULT)`, [owner_id, dog_id, dog_owner_id, card_name, tier, attributes]);
     res.send(response);
 });
