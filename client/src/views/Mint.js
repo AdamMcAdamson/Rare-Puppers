@@ -32,7 +32,7 @@ function Mint (props) {
 				'Accept': 'application/json',
 				'Content-Type': 'application/json',
 			},
-			body: formData
+			body: JSON.stringify(formData)
 		})
 	}
 
