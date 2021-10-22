@@ -5,6 +5,7 @@ import '../App.css';
 
 function Mint (props) {
 	const handleSubmit = (e) =>{
+		console.log("HANDLE SUBMIT");
 		fetch('/mint', {
 			method: 'POST',
 			headers: {
