@@ -53,6 +53,9 @@ function Mint (props) {
 					<label class="mint-form-label">Card name</label>
 					<input class="mint-form-input" name="card_name" type='text' onChange={handleChange}/>
 					<br/>
+					<label class="mint-form-label">Card image URL</label>
+					<input class="mint-form-input" name="card_image" type='text' onChange={handleChange}/>
+					<br/>
 					<label class="mint-form-label">Tier</label>
 					<input class="mint-form-input" name="tier" type='number' onChange={handleChange}/>
 					<br/>

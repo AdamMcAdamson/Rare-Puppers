@@ -14,14 +14,15 @@ router.post('/mint', async (req, res) => {
     const dog_id = req.body.dog_id;
     const dog_owner_id = req.body.dog_owner_id; // unnecessary
     const card_name = req.body.card_name;
+    const card_image = req.body.card_image || "DEFAULT";
     const tier = req.body.tier;
     const attributes = req.body.attributes.split(",").map((e)=>e.trim());
 
     // Example:
-    // INSERT INTO rarepuppersdbschema_dev.cards VALUES (DEFAULT, 1, 1, 1, 'Pablo the Pablano', 11, '{"derp", "if it fits i sits", "blep"}', DEFAULT, DEFAULT)
+    // INSERT INTO rarepuppersdbschema_dev.cards VALUES (DEFAULT, 1, 1, 1, 'Pablo the Pablano', 'www.example.com', 11, '{"derp", "if it fits i sits", "blep"}', DEFAULT, DEFAULT)
     console.log("MINT POST");
     console.log(owner_id + " : " + dog_id + " : " + dog_owner_id + " : " + card_name + " : " + tier + " : "+ attributes);
-    const response = db.query(`INSERT INTO rarepuppersdbschema_dev.cards VALUES (DEFAULT, $1, $2, $3, $4, $5, DEFAULT, DEFAULT)`, [owner_id, dog_id, card_name, tier, attributes]);
+    const response = db.query(`INSERT INTO rarepuppersdbschema_dev.cards VALUES (DEFAULT, $1, $2, $3, $4, $5, $6, DEFAULT, DEFAULT)`, [owner_id, dog_id, card_name, card_image, tier, attributes]);
     res.send(response);
 });
 

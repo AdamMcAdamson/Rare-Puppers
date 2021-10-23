@@ -47,6 +47,7 @@ CREATE  TABLE rarepuppersdbschema_dev.cards (
 	card_owner_id        bigint  NOT NULL,
 	dog_id               bigint  NOT NULL,
 	card_name            text  NOT NULL,
+	card_image			 text Default "https://www.protectorfiresafety.com/12748-thickbox_default/work-in-progress-.jpg" NOT NULL,
 	tier                 smallint  NOT NULL,
 	attributes           text[]  NOT NULL,
 	upvotes              bigint DEFAULT 0 NOT NULL,
@@ -90,11 +91,11 @@ COMMENT ON COLUMN rarepuppersdbschema_dev.cards.attributes IS 'dog attributes';
 
 /* cards */
 /*
-	INSERT INTO rarepuppersdbschema_dev.cards VALUES (DEFAULT, 1, 1, 'Pablo the Poblano', 12, '{"derp", "if it fits i sits", "blep"}', DEFAULT, DEFAULT);
-	INSERT INTO rarepuppersdbschema_dev.cards VALUES (DEFAULT, 1, 1, 'Pablo the Pirate', 19, '{"derp", "sit", "bamboozled"}', DEFAULT, DEFAULT);
-	INSERT INTO rarepuppersdbschema_dev.cards VALUES (DEFAULT, 1, 6, 'Chico the Wizard', 99, '{"derp", "sit", "blep"}', DEFAULT, DEFAULT);
-	INSERT INTO rarepuppersdbschema_dev.cards VALUES (DEFAULT, 2, 2, 'Coco the Quick', 17, '{"contains zoomies", "very fast doggo running at incredible high speed"}', DEFAULT, DEFAULT);
-	INSERT INTO rarepuppersdbschema_dev.cards VALUES (DEFAULT, 3, 3, 'Lady the Derp', 14, '{"derp", "if it fits i sits", "MOWF"}', DEFAULT, DEFAULT);
-	INSERT INTO rarepuppersdbschema_dev.cards VALUES (DEFAULT, 1, 5, 'Headwarmer', 22, '{"sit", "if it fits i sits", "sploot"}', DEFAULT, DEFAULT);
-	INSERT INTO rarepuppersdbschema_dev.cards VALUES (DEFAULT, 1, 4, 'Lumbering jack', 13, '{"shoob", "protec", "maximum borkdrive"}', DEFAULT, DEFAULT);
+	INSERT INTO rarepuppersdbschema_dev.cards VALUES (DEFAULT, 1, 1, 'Pablo the Poblano', DEFAULT, 12, '{"derp", "if it fits i sits", "blep"}', DEFAULT, DEFAULT);
+	INSERT INTO rarepuppersdbschema_dev.cards VALUES (DEFAULT, 1, 1, 'Pablo the Pirate', DEFAULT, 19, '{"derp", "sit", "bamboozled"}', DEFAULT, DEFAULT);
+	INSERT INTO rarepuppersdbschema_dev.cards VALUES (DEFAULT, 1, 6, 'Chico the Wizard', DEFAULT, 99, '{"derp", "sit", "blep"}', DEFAULT, DEFAULT);
+	INSERT INTO rarepuppersdbschema_dev.cards VALUES (DEFAULT, 2, 2, 'Coco the Quick', DEFAULT, 17, '{"contains zoomies", "very fast doggo running at incredible high speed"}', DEFAULT, DEFAULT);
+	INSERT INTO rarepuppersdbschema_dev.cards VALUES (DEFAULT, 3, 3, 'Lady the Derp', DEFAULT, 14, '{"derp", "if it fits i sits", "MOWF"}', DEFAULT, DEFAULT);
+	INSERT INTO rarepuppersdbschema_dev.cards VALUES (DEFAULT, 1, 5, 'Headwarmer', DEFAULT, 22, '{"sit", "if it fits i sits", "sploot"}', DEFAULT, DEFAULT);
+	INSERT INTO rarepuppersdbschema_dev.cards VALUES (DEFAULT, 1, 4, 'Lumbering jack', DEFAULT, 13, '{"shoob", "protec", "maximum borkdrive"}', DEFAULT, DEFAULT);
 */
