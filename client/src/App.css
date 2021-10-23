@@ -80,10 +80,16 @@ body {
   z-index: 99;
 }
 
-.card-image {
+.card-image-wrapper {
   width: 200px;
   height: 200px;
   margin: 10px 25px;
+  overflow: hidden;
+}
+
+.card-image {
+  width: 100%;
+  height: auto;
   /*background-color: blueviolet;*/
 }
 
@@ -91,7 +97,7 @@ body {
   font-size: 20px;
   width: 200px;
   position: relative;
-  bottom: 41px;
+  bottom: 36px;
   left: 25px;
   display: block;
   background-color: hsla(0, 0%, 78.4%, 0.9);
@@ -102,7 +108,7 @@ body {
   color: #daa520;
   width: 50px;
   position: relative;
-  bottom: 241px;
+  bottom: 237px;
   left: 175px;
   background-color: #00ced1;
   border-radius: 0 0 0 10px;

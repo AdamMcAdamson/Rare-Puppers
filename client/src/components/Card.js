@@ -5,7 +5,7 @@ function Card (props) {
 	return (
 		<div class="card-containter">
 		<div className="Card" onClick={props.onClick} id={props.card_id} class={"Card " + props.zoom(props.card_id)}>
-		<img class="card-image" src={props.card_image} alt={props.card_name}/>
+		<div class="card-image-wrapper"><img class="card-image" src={props.card_image} alt={props.card_name}/></div>
 		<a class="card-name">{props.card_name}</a>
 		<a class="card-tier">{props.tier}</a>
 		<div class="card-stats">
