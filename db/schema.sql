@@ -13,9 +13,12 @@ CREATE TYPE dogtype AS ENUM ('yapper', 'pupper', 'doggo', 'woofer', 'floofer');
 
 CREATE  TABLE rarepuppersdbschema_dev.users ( 
 	user_id              bigint  NOT NULL GENERATED  ALWAYS AS IDENTITY,
-	username             varchar(20)  NOT NULL ,
-	passphrase           text DEFAULT 'pass' NOT NULL ,
-	money                money DEFAULT 100 NOT NULL ,
+	username             varchar(24)  NOT NULL,
+	passphrase           text DEFAULT 'pass' NOT NULL,
+	display_name		 varchar(24) NOT NULL,
+	discription_short	 varchar(240),
+	discription_long	 varchar(5000),
+	profile_picture 	 text Default 'https://www.protectorfiresafety.com/12748-thickbox_default/work-in-progress-.jpg' NOT NULL,
 	CONSTRAINT pk_users_user_id PRIMARY KEY ( user_id )
  );
 
@@ -25,7 +28,14 @@ COMMENT ON COLUMN rarepuppersdbschema_dev.users.username IS 'username';
 
 COMMENT ON COLUMN rarepuppersdbschema_dev.users.passphrase IS 'user password';
 
-COMMENT ON COLUMN rarepuppersdbschema_dev.users.money IS 'user money';
+COMMENT ON COLUMN rarepuppersdbschema_dev.users.display_name IS 'user display name';
+
+COMMENT ON COLUMN rarepuppersdbschema_dev.users.discription_short IS 'user short discription';
+
+COMMENT ON COLUMN rarepuppersdbschema_dev.users.discription_long IS 'user long discription';
+
+COMMENT ON COLUMN rarepuppersdbschema_dev.users.profile_picture IS 'user profile picture';
+
 
 CREATE  TABLE rarepuppersdbschema_dev.dogs ( 
 	dog_id               bigint  NOT NULL GENERATED  ALWAYS AS IDENTITY,
@@ -47,7 +57,7 @@ CREATE  TABLE rarepuppersdbschema_dev.cards (
 	card_owner_id        bigint  NOT NULL,
 	dog_id               bigint  NOT NULL,
 	card_name            text  NOT NULL,
-	card_image			 text Default "https://www.protectorfiresafety.com/12748-thickbox_default/work-in-progress-.jpg" NOT NULL,
+	card_image			 text Default 'https://www.protectorfiresafety.com/12748-thickbox_default/work-in-progress-.jpg' NOT NULL,
 	tier                 smallint  NOT NULL,
 	attributes           text[]  NOT NULL,
 	upvotes              bigint DEFAULT 0 NOT NULL,
@@ -73,10 +83,10 @@ COMMENT ON COLUMN rarepuppersdbschema_dev.cards.attributes IS 'dog attributes';
 
 /* users */
 /*
-	INSERT INTO rarepuppersdbschema_dev.users VALUES (DEFAULT, 'Adam', 'pass1', 100);
-	INSERT INTO rarepuppersdbschema_dev.users VALUES (DEFAULT, 'Mary', 'pass2', 150);
-	INSERT INTO rarepuppersdbschema_dev.users VALUES (DEFAULT, 'Lauren', 'pass3', 120);
-	INSERT INTO rarepuppersdbschema_dev.users VALUES (DEFAULT, 'John', 'cenaiscool', 1120);
+	INSERT INTO rarepuppersdbschema_dev.users VALUES (DEFAULT, 'Adam', 'pass1', 'AdamMcAdamson', 'creator of rare puppers', 'Hello I am Adam. I made this site. I hope you like it :)', DEFAULT);
+	INSERT INTO rarepuppersdbschema_dev.users VALUES (DEFAULT, 'Mary', 'pass2', 'Momma', 'mother of the creator', 'We love our dogs here!', DEFAULT);
+	INSERT INTO rarepuppersdbschema_dev.users VALUES (DEFAULT, 'Lauren', 'pass3', 'Sista', 'we out here', '>', DEFAULT);
+	INSERT INTO rarepuppersdbschema_dev.users VALUES (DEFAULT, 'John', 'cenaiscool', 'MuscleMan', 'bout to five-finger shuffle your ass', E'GOAT WWE KING OF ALL TIME. AMERICA\'s HERO', DEFAULT);
 */
 
 /* dogs */
