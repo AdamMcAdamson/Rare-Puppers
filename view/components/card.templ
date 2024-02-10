@@ -1,0 +1,44 @@
+package components
+
+import (
+    "github.com/AdamMcAdamson/exp-stack/model"
+)
+
+// type HxAttributes struct {
+//     Verb string
+//     Endpoint string
+//     Trigger string
+//     Target string
+//     Swap string 
+//     // TODO: Finish
+// }
+
+type CardProps struct {
+    HxAttributes HxAttributes
+    Card    model.Card
+}
+
+// func (p *CardProps) toAttrs() templ.Attributes{
+
+//     // @TODO: Rework (verify exists, etc..)
+//     return templ.Attributes{
+//         "hx-" + strings.ToLower(p.HxAttributes.Verb): p.HxAttributes.Endpoint,
+//         "hx-swap": p.HxAttributes.Swap,
+//         "hx-trigger": p.HxAttributes.Trigger,
+//         "hx-target": p.HxAttributes.Target,
+//     }
+// }
+
+templ Card(props CardProps) {
+    <div class="card">
+        <div class="card-header">
+            <h3>{ props.Card.Title }</h3>
+        </div>
+        <div class="">
+            <img src={ props.Card.ImageUrl } alt="Card Image"/>
+            <p><strong>Description:</strong>{ props.Card.Description }</p>
+        </div>
+        <div class="card-footer">
+        </div>
+    </div>
+}

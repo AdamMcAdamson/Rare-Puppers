@@ -1,0 +1,79 @@
+package user
+
+import (
+    "github.com/AdamMcAdamson/exp-stack/view/layout"
+    "github.com/AdamMcAdamson/exp-stack/view/components"
+    "github.com/AdamMcAdamson/exp-stack/model"
+)
+
+func getUser(c context.Context) model.User {
+    user, ok := c.Value(model.UserCtxKey()).(model.User)
+    if !ok {
+        return model.User {Email: "", Id: 0}
+    }
+    return user
+}
+
+templ Show() {
+    @layout.Base(){
+        @components.Card(components.CardProps{
+            Card: model.Card{
+                Title: "Hello World",
+                Description: "Hello world, this is a card that introduces itself",
+                ImageUrl: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.explicit.bing.net%2Fth%3Fid%3DOIP.R0kzeMffyok0STSN3w2jPQHaHa%26pid%3DApi&f=1&ipt=2090907014ff37dca0e88f18cacad530a674ce196ece5c6b511df70ed960bb41&ipo=images",
+            },
+        })
+    }
+}
+
+
+
+templ ShowUserCards(page int){
+
+    getUser(ctx).Id
+}
+
+
+
+
+
+/*
+// Demo Code 
+
+func getUser(c context.Context) model.User {
+    user, ok := c.Value("user").(model.User)
+    if !ok {
+        return model.User {Email: ""}
+    }
+    return user
+}
+
+templ Show(user model.User){
+    @layout.Base(){
+        <h1> context user email:
+            {getUser(ctx).Email}
+        </h1>
+        <h1> Hello {user.Email} from the user templ template! </h1>
+        @components.Input(components.InputProps{
+            Typ: "email",
+            Name: "email",
+        })
+        @components.Button(components.ButtonProps{
+            HxAttributes: components.HxAttributes{
+                Verb:"post",
+                Swap: "innerHTML",
+                Endpoint: "/clicked",
+                Target: "#clicked",
+                Trigger: "click",
+            },
+            Text: "Click Me!",
+        })
+        <div id="clicked">
+        </div>
+    }
+}
+
+templ Clicked(n int) {
+    <h1> You Clicked the button! {strconv.Itoa(n)} times! </h1>
+}
+*/

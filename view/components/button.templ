@@ -1,0 +1,37 @@
+package components
+
+import (
+    "strings"
+	"strings"
+)
+
+type HxAttributes struct {
+    Verb string
+    Endpoint string
+    Trigger string
+    Target string
+    Swap string 
+    // TODO: Finish
+}
+
+type ButtonProps struct {
+    HxAttributes HxAttributes
+    Text string
+}
+
+func (p *ButtonProps) toAttrs() templ.Attributes{
+
+    // @TODO: Rework (verify exists, etc..)
+    return templ.Attributes{
+        "hx-" + strings.ToLower(p.HxAttributes.Verb): p.HxAttributes.Endpoint,
+        "hx-swap": p.HxAttributes.Swap,
+        "hx-trigger": p.HxAttributes.Trigger,
+        "hx-target": p.HxAttributes.Target,
+    }
+}
+
+templ Button(props ButtonProps) {
+    <button { props.toAttrs()... }>
+        { props.Text }
+    </button>
+}
