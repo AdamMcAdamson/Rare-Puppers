@@ -3,8 +3,8 @@ package main
 import (
 	"context"
 
-	"github.com/AdamMcAdamson/exp-stack/handler"
-	"github.com/AdamMcAdamson/exp-stack/model"
+	"github.com/AdamMcAdamson/Rare-Puppers/handler"
+	"github.com/AdamMcAdamson/Rare-Puppers/model"
 
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"

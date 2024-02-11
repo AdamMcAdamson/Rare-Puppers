@@ -1,4 +1,4 @@
-module github.com/AdamMcAdamson/exp-stack
+module github.com/AdamMcAdamson/Rare-Puppers
 
 go 1.20
 

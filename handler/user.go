@@ -1,7 +1,7 @@
 package handler
 
 import (
-	"github.com/AdamMcAdamson/exp-stack/view/user"
+	"github.com/AdamMcAdamson/Rare-Puppers/view/user"
 	"github.com/labstack/echo/v4"
 )
 
