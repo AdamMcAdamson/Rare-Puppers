@@ -28,7 +28,7 @@ func main() {
 	// app.POST("/clicked", userHandler.HandlerUserClicked)
 
 	// Start server
-	app.Logger.Fatal(app.Start(":8080"))
+	app.Logger.Fatal(app.Start("127.0.0.1:8080"))
 }
 
 func withUser(next echo.HandlerFunc) echo.HandlerFunc {
