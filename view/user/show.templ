@@ -21,7 +21,10 @@ templ Show() {
                 Title: "Hello World",
                 Description: "Hello world, this is a card that introduces itself",
                 ImageUrl: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.explicit.bing.net%2Fth%3Fid%3DOIP.R0kzeMffyok0STSN3w2jPQHaHa%26pid%3DApi&f=1&ipt=2090907014ff37dca0e88f18cacad530a674ce196ece5c6b511df70ed960bb41&ipo=images",
-            },
+                Strength: 70,
+                Health: 230,
+                ClassType: "Flying",
+            }.ToProps(),
         })
     }
 }
@@ -29,7 +32,6 @@ templ Show() {
 
 
 templ ShowUserCards(page int){
-
     getUser(ctx).Id
 }
 

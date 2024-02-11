@@ -4,18 +4,9 @@ import (
     "github.com/AdamMcAdamson/Rare-Puppers/model"
 )
 
-// type HxAttributes struct {
-//     Verb string
-//     Endpoint string
-//     Trigger string
-//     Target string
-//     Swap string 
-//     // TODO: Finish
-// }
-
 type CardProps struct {
     HxAttributes model.HxAttributes
-    Card    model.Card
+    Card    model.CardP
 }
 
 // func (p *CardProps) toAttrs() templ.Attributes{
@@ -29,20 +20,6 @@ type CardProps struct {
 //     }
 // }
 
-// templ Card(props CardProps) {
-//     <div class="card">
-//         <div class="card-header">
-//             <h3>{ props.Card.Title }</h3>
-//         </div>
-//         <div class="">
-//             <img src={ props.Card.ImageUrl } alt="Card Image"/>
-//             <p><strong>Description:</strong>{ props.Card.Description }</p>
-//         </div>
-//         <div class="card-footer">
-//         </div>
-//     </div>
-// }
-
 templ Card(props CardProps) {
     <div class="card">
         <div class="card-header">
@@ -50,16 +27,16 @@ templ Card(props CardProps) {
         </div>
         <div class="card-body">
             <div class="card-strength-orb">
-                50
+                { props.Card.Strength }
             </div>
             <div class="card-health-orb">
-                200
+                { props.Card.Health }
             </div>
             <div class="card-image-container">
                 <img class="card-image" src={ props.Card.ImageUrl }  alt="Card Image"/>
             </div>
             <div class="card-description">
-                <strong>Type:</strong> Grass <br/>
+                <strong>Type:</strong> { props.Card.ClassType } <br/>
                 <strong>Description:</strong> { props.Card.Description }
             </div>
         </div>
