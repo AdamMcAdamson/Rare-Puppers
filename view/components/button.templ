@@ -2,20 +2,12 @@ package components
 
 import (
     "strings"
-	"strings"
+    "github.com/AdamMcAdamson/Rare-Puppers/model"
 )
 
-type HxAttributes struct {
-    Verb string
-    Endpoint string
-    Trigger string
-    Target string
-    Swap string 
-    // TODO: Finish
-}
 
 type ButtonProps struct {
-    HxAttributes HxAttributes
+    HxAttributes model.HxAttributes
     Text string
 }
 

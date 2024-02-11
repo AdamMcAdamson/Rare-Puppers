@@ -14,7 +14,7 @@ import (
 // }
 
 type CardProps struct {
-    HxAttributes HxAttributes
+    HxAttributes model.HxAttributes
     Card    model.Card
 }
 
@@ -29,16 +29,39 @@ type CardProps struct {
 //     }
 // }
 
+// templ Card(props CardProps) {
+//     <div class="card">
+//         <div class="card-header">
+//             <h3>{ props.Card.Title }</h3>
+//         </div>
+//         <div class="">
+//             <img src={ props.Card.ImageUrl } alt="Card Image"/>
+//             <p><strong>Description:</strong>{ props.Card.Description }</p>
+//         </div>
+//         <div class="card-footer">
+//         </div>
+//     </div>
+// }
+
 templ Card(props CardProps) {
     <div class="card">
         <div class="card-header">
-            <h3>{ props.Card.Title }</h3>
+            <h3 class="card-title">Card Name</h3>
         </div>
-        <div class="">
-            <img src={ props.Card.ImageUrl } alt="Card Image"/>
-            <p><strong>Description:</strong>{ props.Card.Description }</p>
+        <div class="card-body">
+            <div class="card-strength-orb">
+                50
+            </div>
+            <div class="card-health-orb">
+                200
+            </div>
+            <div class="card-image">
+                <!-- <img  src="../../assets/pupper.jpg" alt="Card Image"> -->
+            </div>
+            <div class="card-description">
+                <strong>Type:</strong> Grass <br/>
+                <strong>Description:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </div>
         </div>
-        <div class="card-footer">
-        </div>
-    </div>
+  </div>
 }

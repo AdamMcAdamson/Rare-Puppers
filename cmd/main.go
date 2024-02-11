@@ -24,6 +24,7 @@ func main() {
 	// n := 0
 
 	// Routes
+	app.Static("/", "assets")
 	app.GET("/", userHandler.HandlerUserShow)
 	// app.POST("/clicked", userHandler.HandlerUserClicked)
 
