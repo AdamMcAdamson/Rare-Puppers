@@ -46,7 +46,7 @@ type CardProps struct {
 templ Card(props CardProps) {
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Card Name</h3>
+            <h3 class="card-title">{ props.Card.Title }</h3>
         </div>
         <div class="card-body">
             <div class="card-strength-orb">
@@ -55,12 +55,12 @@ templ Card(props CardProps) {
             <div class="card-health-orb">
                 200
             </div>
-            <div class="card-image">
-                <!-- <img  src="../../assets/pupper.jpg" alt="Card Image"> -->
+            <div class="card-image-container">
+                <img class="card-image" src={ props.Card.ImageUrl }  alt="Card Image"/>
             </div>
             <div class="card-description">
                 <strong>Type:</strong> Grass <br/>
-                <strong>Description:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                <strong>Description:</strong> { props.Card.Description }
             </div>
         </div>
   </div>

@@ -62,15 +62,20 @@ body {
 	z-index: 1;
 }
 
-.card-image {
+.card-image-container {
 	position: absolute;
 	margin: 10px 10px 0px 10px;
 	width: 226px;
 	height: 226px;
-	background-image: url("/images/pupper.jpg");
-	background-size: cover;
 	border: 1px solid #000;
 	border-radius: 8px;
+	overflow: hidden;
+}
+
+.card-image {
+	width: 226px;
+	height: 226px;
+	object-fit: cover
 }
 
 .card-description {

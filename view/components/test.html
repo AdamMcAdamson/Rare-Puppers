@@ -69,15 +69,20 @@
       z-index: 1;
     }
 
-    .card-image {
+    .card-image-container {
       position: absolute;
       margin: 10px 10px 0px 10px;
       width: 226px;
       height: 226px;
-      background-image: url("../../assets/pupper.jpg");
-      background-size: cover;
       border: 1px solid #000;
       border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .card-image {
+      width: 226px;
+      height: 226px;
+      object-fit: cover
     }
 
     .card-description {
@@ -113,8 +118,8 @@
       <div class="card-health-orb">
         200
       </div>
-      <div class="card-image">
-        <!-- <img  src="../../assets/pupper.jpg" alt="Card Image"> -->
+      <div class="card-image-container">
+        <img class="card-image" src="../../assets/images/pupper.jpg" alt="Card Image">
       </div>
       <div class="card-description">
         <strong>Type:</strong> Grass <br>
